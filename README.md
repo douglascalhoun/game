@@ -17,7 +17,6 @@ Open [http://localhost:3000](http://localhost:3000) and click **Play Now**.
 | --- | --- |
 | `W` / click + hold | Thrust |
 | `A` / `D` | Turn |
-| `Space` | Brake |
 | `L` | Land (when in docking range) |
 
 ## Tech Stack

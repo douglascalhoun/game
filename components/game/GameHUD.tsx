@@ -45,8 +45,7 @@ export function GameHUD() {
             Fly toward the station. Thrust with{" "}
             <kbd className="rounded bg-slate-800 px-1">W</kbd> / click, turn with{" "}
             <kbd className="rounded bg-slate-800 px-1">A</kbd>
-            <kbd className="rounded bg-slate-800 px-1">D</kbd>, brake with{" "}
-            <kbd className="rounded bg-slate-800 px-1">Space</kbd>
+            <kbd className="rounded bg-slate-800 px-1">D</kbd>
           </p>
         )}
         <p className="mt-1 text-xs text-slate-400">

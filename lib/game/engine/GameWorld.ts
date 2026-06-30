@@ -246,7 +246,6 @@ export class GameWorld {
     const keyboardTurnRight = this.input.wantsKeyboardTurnRight();
     const keyboardThrust = this.input.wantsKeyboardThrust();
     const pointerThrust = this.input.isPointerActive();
-    const braking = this.input.wantsToBrake();
 
     let targetAngle: number | null = null;
     let thrusting = keyboardThrust || pointerThrust;
@@ -268,7 +267,6 @@ export class GameWorld {
     return {
       targetAngle,
       thrusting,
-      braking,
     };
   }
 

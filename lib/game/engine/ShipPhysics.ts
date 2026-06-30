@@ -40,7 +40,6 @@ export function updateShipPhysics(
   input: {
     targetAngle: number | null;
     thrusting: boolean;
-    braking: boolean;
   },
   deltaTime: number,
 ): ShipPhysicsState {
@@ -67,17 +66,12 @@ export function updateShipPhysics(
 
   if (input.thrusting) {
     const thrustDirection = {
-      x: Math.sin(next.rotation),
-      y: -Math.cos(next.rotation),
+      x: -Math.sin(next.rotation),
+      y: Math.cos(next.rotation),
     };
     const thrust = config.acceleration * deltaTime;
     next.velocity.x += thrustDirection.x * thrust;
     next.velocity.y += thrustDirection.y * thrust;
-  }
-
-  if (input.braking) {
-    next.velocity.x *= 0.92;
-    next.velocity.y *= 0.92;
   }
 
   next.velocity.x *= 0.98;

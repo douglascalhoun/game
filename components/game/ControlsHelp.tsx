@@ -8,10 +8,6 @@ const controls = [
     action: "Turn left / right",
   },
   {
-    keys: ["Space"],
-    action: "Brake / slow down",
-  },
-  {
     keys: ["L"],
     action: "Land when within docking range",
   },
