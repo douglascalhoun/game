@@ -12,18 +12,28 @@ export class InputManager {
 
   constructor() {
     this.boundKeyDown = (event) => {
+      if (event.code === "Space") {
+        event.preventDefault();
+        if (!event.repeat) {
+          this.keys.add(event.code);
+        }
+        return;
+      }
+
       this.keys.add(event.code);
       if (
         event.code === "ArrowUp" ||
         event.code === "ArrowDown" ||
         event.code === "ArrowLeft" ||
-        event.code === "ArrowRight" ||
-        event.code === "Space"
+        event.code === "ArrowRight"
       ) {
         event.preventDefault();
       }
     };
     this.boundKeyUp = (event) => {
+      if (event.code === "Space") {
+        event.preventDefault();
+      }
       this.keys.delete(event.code);
     };
     this.boundPointerDown = (event) => {
@@ -44,8 +54,9 @@ export class InputManager {
 
   attach(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
-    window.addEventListener("keydown", this.boundKeyDown);
-    window.addEventListener("keyup", this.boundKeyUp);
+    const keyOptions = { capture: true };
+    window.addEventListener("keydown", this.boundKeyDown, keyOptions);
+    window.addEventListener("keyup", this.boundKeyUp, keyOptions);
     canvas.addEventListener("pointerdown", this.boundPointerDown);
     canvas.addEventListener("pointermove", this.boundPointerMove);
     canvas.addEventListener("pointerup", this.boundPointerUp);
@@ -54,8 +65,9 @@ export class InputManager {
   }
 
   detach() {
-    window.removeEventListener("keydown", this.boundKeyDown);
-    window.removeEventListener("keyup", this.boundKeyUp);
+    const keyOptions = { capture: true };
+    window.removeEventListener("keydown", this.boundKeyDown, keyOptions);
+    window.removeEventListener("keyup", this.boundKeyUp, keyOptions);
     if (this.canvas) {
       this.canvas.removeEventListener("pointerdown", this.boundPointerDown);
       this.canvas.removeEventListener("pointermove", this.boundPointerMove);
@@ -94,7 +106,7 @@ export class InputManager {
   }
 
   wantsToFire() {
-    return this.keys.has("Space") || this.keys.has("KeyF");
+    return this.keys.has("Space");
   }
 
   wantsKeyboardThrust() {

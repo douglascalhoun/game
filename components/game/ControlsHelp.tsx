@@ -8,7 +8,7 @@ const controls = [
     action: "Turn left / right",
   },
   {
-    keys: ["Space", "F"],
+    keys: ["Space"],
     action: "Fire weak blaster (1 shot/sec)",
   },
   {

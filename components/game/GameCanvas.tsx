@@ -24,7 +24,9 @@ export function GameCanvas() {
     });
 
     worldRef.current = world;
-    void world.init();
+    void world.init().then(() => {
+      host.focus();
+    });
 
     return () => {
       world.destroy();
@@ -42,5 +44,5 @@ export function GameCanvas() {
     return unsubscribe;
   }, []);
 
-  return <div ref={hostRef} className="h-full w-full touch-none" />;
+  return <div ref={hostRef} className="h-full w-full touch-none outline-none" tabIndex={0} />;
 }

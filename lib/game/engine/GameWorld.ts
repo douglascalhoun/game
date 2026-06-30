@@ -71,6 +71,7 @@ export class GameWorld {
 
     this.host.appendChild(this.app.canvas);
     this.input.attach(this.app.canvas);
+    this.host.focus();
 
     this.setupBackground();
     this.setupStation();
@@ -89,6 +90,7 @@ export class GameWorld {
     this.app.stage.addChild(this.worldContainer);
 
     this.app.canvas.addEventListener("pointerdown", this.handlePointerDown);
+    this.app.canvas.addEventListener("pointerdown", () => this.host.focus());
     this.resizeObserver = new ResizeObserver(() => this.handleResize());
     this.resizeObserver.observe(this.host);
     this.handleResize();
