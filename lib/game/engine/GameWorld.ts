@@ -1,6 +1,7 @@
 import { Application, Container, Graphics } from "pixi.js";
 
 import { playerShip, solSystem } from "../data";
+import { CombatManager } from "./CombatManager";
 import { InputManager } from "./InputManager";
 import { isWithinLandingRange } from "./LandingSystem";
 import {
@@ -14,6 +15,9 @@ export interface GameWorldCallbacks {
   onCanLandChange: (canLand: boolean) => void;
   onLandRequest: () => void;
   onFuelConsume: (amount: number) => void;
+  onPlayerHullChange: (hull: number) => void;
+  onEnemyHullChange: (hull: number | null) => void;
+  onEnemyDestroyed: () => void;
   isPaused: () => boolean;
 }
 
@@ -35,6 +39,7 @@ export class GameWorld {
   private pointerWorldPosition = { x: 0, y: 0 };
   private resizeObserver: ResizeObserver | null = null;
   private host: HTMLElement;
+  private combat: CombatManager | null = null;
 
   constructor(host: HTMLElement, callbacks: GameWorldCallbacks) {
     this.host = host;
@@ -71,9 +76,16 @@ export class GameWorld {
     this.setupStation();
     this.setupPlayer();
 
+    this.combat = new CombatManager({
+      onPlayerHullChange: this.callbacks.onPlayerHullChange,
+      onEnemyHullChange: this.callbacks.onEnemyHullChange,
+      onEnemyDestroyed: this.callbacks.onEnemyDestroyed,
+    });
+
     this.worldContainer.addChild(this.backgroundContainer);
     this.worldContainer.addChild(this.stationContainer);
     this.worldContainer.addChild(this.playerContainer);
+    this.combat.mount(this.worldContainer);
     this.app.stage.addChild(this.worldContainer);
 
     this.app.canvas.addEventListener("pointerdown", this.handlePointerDown);
@@ -90,6 +102,8 @@ export class GameWorld {
     this.app.canvas.removeEventListener("pointerdown", this.handlePointerDown);
     this.resizeObserver?.disconnect();
     this.input.detach();
+    this.combat?.destroy();
+    this.combat = null;
     this.app.ticker.remove(this.update);
     this.app.destroy(true, { children: true });
     this.host.replaceChildren();
@@ -235,6 +249,13 @@ export class GameWorld {
     this.updatePlayerTransform();
     this.updateCamera();
     this.updateLandingState();
+
+    this.combat?.update(
+      deltaTime,
+      this.physics,
+      this.playerGraphics,
+      this.input.wantsToFire(),
+    );
 
     if (this.canLand && this.input.wantsToLand()) {
       this.callbacks.onLandRequest();

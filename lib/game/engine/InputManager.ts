@@ -17,7 +17,8 @@ export class InputManager {
         event.code === "ArrowUp" ||
         event.code === "ArrowDown" ||
         event.code === "ArrowLeft" ||
-        event.code === "ArrowRight"
+        event.code === "ArrowRight" ||
+        event.code === "Space"
       ) {
         event.preventDefault();
       }
@@ -90,6 +91,10 @@ export class InputManager {
 
   wantsToLand() {
     return this.keys.has("KeyL");
+  }
+
+  wantsToFire() {
+    return this.keys.has("Space") || this.keys.has("KeyF");
   }
 
   wantsKeyboardThrust() {

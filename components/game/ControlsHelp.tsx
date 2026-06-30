@@ -8,6 +8,10 @@ const controls = [
     action: "Turn left / right",
   },
   {
+    keys: ["Space", "F"],
+    action: "Fire weak blaster (1 shot/sec)",
+  },
+  {
     keys: ["L"],
     action: "Land when within docking range",
   },

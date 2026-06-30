@@ -17,6 +17,9 @@ export function GameCanvas() {
       onCanLandChange: (canLand) => useGameStore.getState().setCanLand(canLand),
       onLandRequest: () => useGameStore.getState().landAtStation(),
       onFuelConsume: (amount) => useGameStore.getState().consumeFuel(amount),
+      onPlayerHullChange: (hull) => useGameStore.getState().setPlayerHull(hull),
+      onEnemyHullChange: (hull) => useGameStore.getState().setEnemyHull(hull),
+      onEnemyDestroyed: () => useGameStore.getState().setEnemyDestroyed(),
       isPaused: () => useGameStore.getState().showStationMenu,
     });
 

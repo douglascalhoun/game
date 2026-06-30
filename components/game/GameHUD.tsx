@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 
+import { COMBAT } from "@/lib/game/engine/CombatConfig";
 import { playerShip } from "@/lib/game/data";
 import { useGameStore } from "@/lib/game/store/gameStore";
 
@@ -10,6 +11,10 @@ export function GameHUD() {
   const fuel = useGameStore((state) => state.fuel);
   const playerShield = useGameStore((state) => state.playerShield);
   const playerArmor = useGameStore((state) => state.playerArmor);
+  const playerHull = useGameStore((state) => state.playerHull);
+  const enemyHull = useGameStore((state) => state.enemyHull);
+  const enemyDestroyed = useGameStore((state) => state.enemyDestroyed);
+  const combatStatus = useGameStore((state) => state.combatStatus);
   const canLand = useGameStore((state) => state.canLand);
   const currentSystem = useGameStore((state) => state.currentSystem);
 
@@ -21,9 +26,18 @@ export function GameHUD() {
           <div className="mt-2 grid gap-1">
             <StatRow label="Credits" value={credits.toLocaleString()} />
             <StatRow label="Fuel" value={`${Math.floor(fuel)}%`} />
+            <StatRow label="Hull" value={`${playerHull}/${COMBAT.hullPoints}`} />
             <StatRow label="Shields" value={`${Math.floor(playerShield)}%`} />
             <StatRow label="Armor" value={`${Math.floor(playerArmor)}%`} />
+            {!enemyDestroyed && enemyHull !== null && (
+              <StatRow label="Enemy" value={`${enemyHull}/${COMBAT.hullPoints}`} />
+            )}
           </div>
+        </div>
+
+        <div className="rounded-lg border border-rose-500/30 bg-slate-950/80 px-4 py-3 text-sm text-rose-100 backdrop-blur">
+          <p className="font-semibold text-rose-300">Combat</p>
+          <p className="mt-1 text-slate-300">{combatStatus}</p>
         </div>
 
         <Link
@@ -45,7 +59,8 @@ export function GameHUD() {
             Fly toward the station. Thrust with{" "}
             <kbd className="rounded bg-slate-800 px-1">W</kbd> / click, turn with{" "}
             <kbd className="rounded bg-slate-800 px-1">A</kbd>
-            <kbd className="rounded bg-slate-800 px-1">D</kbd>
+            <kbd className="rounded bg-slate-800 px-1">D</kbd>, fire with{" "}
+            <kbd className="rounded bg-slate-800 px-1">Space</kbd>
           </p>
         )}
         <p className="mt-1 text-xs text-slate-400">
