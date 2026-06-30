@@ -57,9 +57,16 @@ NovaIOS/
 
 ### Building the Project
 
-1. Open `NovaIOS.xcodeproj` in Xcode 14.0+
-2. Select your target device or simulator
-3. Build and run (⌘R)
+**Quick Start:**
+```bash
+open NovaIOS.xcodeproj  # Opens in Xcode
+# Select iPhone simulator → Press ⌘R to run
+```
+
+**Detailed Guides:**
+- 📱 **[QUICKSTART.md](QUICKSTART.md)** - Get running in 5 minutes
+- 🧪 **[TESTING.md](TESTING.md)** - Complete testing guide
+- 🚀 **[DEPLOYMENT.md](DEPLOYMENT.md)** - TestFlight & App Store deployment
 
 ### Next Steps (Upcoming Phases)
 
