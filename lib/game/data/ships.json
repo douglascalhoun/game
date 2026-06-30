@@ -1,0 +1,10 @@
+{
+  "name": "Shuttle",
+  "mass": 100,
+  "maxSpeed": 300,
+  "acceleration": 150,
+  "turnRate": 3.0,
+  "maxShield": 100,
+  "maxArmor": 100,
+  "cargoSpace": 30
+}
