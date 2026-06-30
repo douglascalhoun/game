@@ -1,0 +1,211 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1000001 /* NovaIOSApp.swift */ = {isa = PBXBuildFile; fileRef = A1000002; };
+		A1000003 /* ContentView.swift */ = {isa = PBXBuildFile; fileRef = A1000004; };
+		A1000005 /* GameState.swift */ = {isa = PBXBuildFile; fileRef = A1000006; };
+		A1000007 /* GameScene.swift */ = {isa = PBXBuildFile; fileRef = A1000008; };
+		A1000009 /* Ship.swift */ = {isa = PBXBuildFile; fileRef = A1000010; };
+		A1000011 /* Station.swift */ = {isa = PBXBuildFile; fileRef = A1000012; };
+		A1000013 /* StarSystem.swift */ = {isa = PBXBuildFile; fileRef = A1000014; };
+		A1000015 /* HUDView.swift */ = {isa = PBXBuildFile; fileRef = A1000016; };
+		A1000017 /* StationMenuView.swift */ = {isa = PBXBuildFile; fileRef = A1000018; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A1000002 /* NovaIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NovaIOSApp.swift; sourceTree = "<group>"; };
+		A1000004 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A1000006 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		A1000008 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		A1000010 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
+		A1000012 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		A1000014 /* StarSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSystem.swift; sourceTree = "<group>"; };
+		A1000016 /* HUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDView.swift; sourceTree = "<group>"; };
+		A1000018 /* StationMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationMenuView.swift; sourceTree = "<group>"; };
+		A1000019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1000020 /* NovaIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NovaIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		A1000021 /* NovaIOS */ = {
+			isa = PBXGroup;
+			children = (
+				A1000002 /* NovaIOSApp.swift */,
+				A1000004 /* ContentView.swift */,
+				A1000006 /* GameState.swift */,
+				A1000022 /* Game */,
+				A1000023 /* Models */,
+				A1000024 /* Views */,
+				A1000019 /* Info.plist */,
+			);
+			path = NovaIOS;
+			sourceTree = "<group>";
+		};
+		A1000022 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				A1000008 /* GameScene.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		A1000023 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A1000010 /* Ship.swift */,
+				A1000012 /* Station.swift */,
+				A1000014 /* StarSystem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A1000024 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1000016 /* HUDView.swift */,
+				A1000018 /* StationMenuView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A1000025 = {
+			isa = PBXGroup;
+			children = (
+				A1000021 /* NovaIOS */,
+				A1000026 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1000026 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1000020 /* NovaIOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		A1000027 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = A1000028 /* Build configuration list for PBXProject "NovaIOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A1000025;
+			productRefGroup = A1000026 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1000029 /* NovaIOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXNativeTarget section */
+		A1000029 /* NovaIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1000030 /* Build configuration list for PBXNativeTarget "NovaIOS" */;
+			buildPhases = (
+				A1000031 /* Sources */,
+				A1000032 /* Frameworks */,
+				A1000033 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NovaIOS;
+			productName = NovaIOS;
+			productReference = A1000020 /* NovaIOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin XCBuildConfiguration section */
+		A1000034 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NovaIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.NovaIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A1000035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = NovaIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.NovaIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1000028 /* Build configuration list for PBXProject "NovaIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1000034 /* Debug */,
+				A1000035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1000030 /* Build configuration list for PBXNativeTarget "NovaIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1000034 /* Debug */,
+				A1000035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1000027 /* Project object */;
+}
