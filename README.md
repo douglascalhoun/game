@@ -11,6 +11,11 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) and click **Play Now**.
 
+## Play Online
+
+- **Landing:** https://game-cdo8.vercel.app/
+- **Game:** https://game-cdo8.vercel.app/play
+
 ## Controls
 
 | Input | Action |
